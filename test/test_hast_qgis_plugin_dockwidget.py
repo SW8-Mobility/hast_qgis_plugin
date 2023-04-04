@@ -19,7 +19,7 @@ from qgis.PyQt.QtWidgets import QDockWidget
 from hast_qgis_plugin_dockwidget import HastQgisPluginDockWidget
 from test.test_resources import HastQgisPluginDialogTest
 
-from utilities import get_qgis_app
+from .utilities import get_qgis_app
 
 QGIS_APP = get_qgis_app()
 
