@@ -14,7 +14,7 @@ __copyright__ = "Copyright 2023, Alexander Nesheim,  Alexander Højgaard, Casper
 
 import unittest
 
-from qgis.PyQt.QtGui import QIcon
+from qgis.PyQt.QtGui import QIcon  # type: ignore
 
 
 class HastQgisPluginDialogTest(unittest.TestCase):

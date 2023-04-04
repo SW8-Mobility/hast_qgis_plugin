@@ -24,8 +24,8 @@
 
 import os
 
-from qgis.PyQt import QtGui, QtWidgets, uic
-from qgis.PyQt.QtCore import pyqtSignal
+from qgis.PyQt import QtGui, QtWidgets, uic  # type: ignore
+from qgis.PyQt.QtCore import pyqtSignal  # type: ignore
 
 FORM_CLASS, _ = uic.loadUiType(
     os.path.join(os.path.dirname(__file__), "hast_qgis_plugin_dockwidget_base.ui")
