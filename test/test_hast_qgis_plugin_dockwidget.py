@@ -14,7 +14,7 @@ __copyright__ = "Copyright 2023, Alexander Nesheim,  Alexander Højgaard, Casper
 
 import unittest
 
-from qgis.PyQt.QtGui import QDockWidget
+from qgis.PyQt.QtWidgets import QDockWidget
 
 from hast_qgis_plugin_dockwidget import HastQgisPluginDockWidget
 
