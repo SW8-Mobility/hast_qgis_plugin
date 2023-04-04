@@ -16,8 +16,8 @@ import unittest
 
 from qgis.PyQt.QtWidgets import QDockWidget  # type: ignore
 
-from hast_qgis_plugin_dockwidget import HastQgisPluginDockWidget   # type: ignore
-from test.test_resources import HastQgisPluginDialogTest   # type: ignore
+from hast_qgis_plugin_dockwidget import HastQgisPluginDockWidget  # type: ignore
+from test.test_resources import HastQgisPluginDialogTest  # type: ignore
 
 from .utilities import get_qgis_app
 

@@ -14,7 +14,7 @@ __copyright__ = "Copyright 2012, Australia Indonesia Facility for " "Disaster Re
 
 import os
 import unittest
-from qgis.core import QgsProviderRegistry, QgsCoordinateReferenceSystem, QgsRasterLayer   # type: ignore
+from qgis.core import QgsProviderRegistry, QgsCoordinateReferenceSystem, QgsRasterLayer  # type: ignore
 
 from .utilities import get_qgis_app
 
