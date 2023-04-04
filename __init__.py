@@ -33,4 +33,5 @@ def classFactory(iface):  # pylint: disable=invalid-name
     """
     #
     from .hast_qgis_plugin import HastQgisPlugin
+
     return HastQgisPlugin(iface)

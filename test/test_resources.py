@@ -8,14 +8,13 @@
 
 """
 
-__author__ = 'cs-23-sw-8-04@student.aau.dk'
-__date__ = '2023-04-04'
-__copyright__ = 'Copyright 2023, Alexander Nesheim,  Alexander Højgaard, Casper Kjærhus, Freja Herreborg, Jakob Gregersen'
+__author__ = "cs-23-sw-8-04@student.aau.dk"
+__date__ = "2023-04-04"
+__copyright__ = "Copyright 2023, Alexander Nesheim,  Alexander Højgaard, Casper Kjærhus, Freja Herreborg, Jakob Gregersen"
 
 import unittest
 
 from qgis.PyQt.QtGui import QIcon
-
 
 
 class HastQgisPluginDialogTest(unittest.TestCase):
@@ -31,14 +30,12 @@ class HastQgisPluginDialogTest(unittest.TestCase):
 
     def test_icon_png(self):
         """Test we can click OK."""
-        path = ':/plugins/HastQgisPlugin/icon.png'
+        path = ":/plugins/HastQgisPlugin/icon.png"
         icon = QIcon(path)
         self.assertFalse(icon.isNull())
+
 
 if __name__ == "__main__":
     suite = unittest.makeSuite(HastQgisPluginResourcesTest)
     runner = unittest.TextTestRunner(verbosity=2)
     runner.run(suite)
-
-
-

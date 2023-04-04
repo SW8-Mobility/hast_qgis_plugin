@@ -8,9 +8,9 @@
 
 """
 
-__author__ = 'cs-23-sw-8-04@student.aau.dk'
-__date__ = '2023-04-04'
-__copyright__ = 'Copyright 2023, Alexander Nesheim,  Alexander Højgaard, Casper Kjærhus, Freja Herreborg, Jakob Gregersen'
+__author__ = "cs-23-sw-8-04@student.aau.dk"
+__date__ = "2023-04-04"
+__copyright__ = "Copyright 2023, Alexander Nesheim,  Alexander Højgaard, Casper Kjærhus, Freja Herreborg, Jakob Gregersen"
 
 import unittest
 
@@ -38,8 +38,8 @@ class HastQgisPluginDockWidgetTest(unittest.TestCase):
         """Test we can click OK."""
         pass
 
+
 if __name__ == "__main__":
     suite = unittest.makeSuite(HastQgisPluginDialogTest)
     runner = unittest.TextTestRunner(verbosity=2)
     runner.run(suite)
-
