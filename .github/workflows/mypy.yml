@@ -1,0 +1,21 @@
+name: mypy
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  pytest:
+    name: Run Mypy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v3
+
+      - name: Set QGis docker container
+        run: docker pull qgis/qgis:latest
+      
+      - name: Run mypy
+        run: docker run --rm --volume `pwd`:/plugin -w=/plugin qgis/qgis:latest sh -c "pip3 install -qr requirements.txt mypy && python -m mypy"
