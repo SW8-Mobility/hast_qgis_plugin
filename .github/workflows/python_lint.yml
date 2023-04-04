@@ -27,7 +27,7 @@ jobs:
       - name: Install Python dependencies
         run: pip install black && pip install -r requirements.txt
 
-      - name: Run Linter and Static Analysis
+      - name: Run Linter
         uses: wearerequired/lint-action@v2
         with:
           auto_fix: true
