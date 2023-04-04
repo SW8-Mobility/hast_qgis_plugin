@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Set QGis docker container
-        run: docker pull qgis/qgis:latest
+        run: docker pull qgis/qgis:release-3_30
       
       - name: Run Tests
         run: docker run --rm --volume `pwd`:/plugin -w=/plugin qgis/qgis:latest sh -c "pip3 install -qr requirements.txt && python3 -m pytest"
