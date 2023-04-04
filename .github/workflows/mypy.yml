@@ -1,4 +1,4 @@
-name: Pytest
+name: mypy
 
 on:
   pull_request:
@@ -7,7 +7,7 @@ on:
 
 jobs:
   pytest:
-    name: Run tests
+    name: Run Mypy
     runs-on: ubuntu-latest
 
     steps:
@@ -17,5 +17,5 @@ jobs:
       - name: Set QGis docker container
         run: docker pull qgis/qgis:latest
       
-      - name: Run Tests
-        run: docker run --rm --volume `pwd`:/plugin -w=/plugin qgis/qgis:latest sh -c "pip3 install -qr requirements.txt && python3 -m pytest"
+      - name: Run mypy
+        run: docker run --rm --volume `pwd`:/plugin -w=/plugin qgis/qgis:latest sh -c "pip3 install -qr requirements.txt mypy && python3 -m mypy --check-untyped-defs ."
