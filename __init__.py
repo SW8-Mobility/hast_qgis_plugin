@@ -32,6 +32,6 @@ def classFactory(iface):  # pylint: disable=invalid-name
     :type iface: QgsInterface
     """
     #
-    from .hast_qgis_plugin import HastQgisPlugin
+    from .hast_qgis_plugin import HastQgisPlugin # type: ignore
 
     return HastQgisPlugin(iface)
