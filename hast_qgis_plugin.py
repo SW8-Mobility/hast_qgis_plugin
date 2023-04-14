@@ -26,10 +26,10 @@ from qgis.PyQt.QtGui import QIcon  # type: ignore
 from qgis.PyQt.QtWidgets import QAction  # type: ignore
 
 # Initialize Qt resources from file resources.py
-from .resources import *
+from .resources import *  # type: ignore
 
 # Import the code for the DockWidget
-from .hast_qgis_plugin_dockwidget import HastQgisPluginDockWidget
+from .hast_qgis_plugin_dockwidget import HastQgisPluginDockWidget  # type: ignore
 import os.path
 
 
@@ -179,7 +179,7 @@ class HastQgisPlugin:
         # print "** CLOSING HastQgisPlugin"
 
         # disconnects
-        self.dockwidget.closingPlugin.disconnect(self.onClosePlugin)
+        self.dockwidget.closingPlugin.disconnect(self.onClosePlugin)  # type: ignore
 
         # remove this statement if dockwidget is to remain
         # for reuse if plugin is reopened
@@ -218,9 +218,9 @@ class HastQgisPlugin:
                 self.dockwidget = HastQgisPluginDockWidget()
 
             # connect to provide cleanup on closing of dockwidget
-            self.dockwidget.closingPlugin.connect(self.onClosePlugin)
+            self.dockwidget.closingPlugin.connect(self.onClosePlugin)  # type: ignore
 
             # show the dockwidget
             # TODO: fix to allow choice of dock location
             self.iface.addDockWidget(Qt.LeftDockWidgetArea, self.dockwidget)
-            self.dockwidget.show()
+            self.dockwidget.show()  # type: ignore

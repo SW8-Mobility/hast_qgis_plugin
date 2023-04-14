@@ -10,7 +10,7 @@ import getpass
 import xmlrpc.client
 from optparse import OptionParser
 
-standard_library.install_aliases()
+standard_library.install_aliases()  # type: ignore
 
 # Configuration
 PROTOCOL = "https"
@@ -41,10 +41,10 @@ def main(parameters, arguments):
     try:
         with open(arguments[0], "rb") as handle:
             plugin_id, version_id = server.plugin.upload(
-                xmlrpc.client.Binary(handle.read())
+                xmlrpc.client.Binary(handle.read())  # type: ignore
             )
-        print("Plugin ID: %s" % plugin_id)
-        print("Version ID: %s" % version_id)
+        print("Plugin ID: ", plugin_id)
+        print("Version ID: ", version_id)
     except xmlrpc.client.ProtocolError as err:
         print("A protocol error occurred")
         print("URL: %s" % hide_password(err.url, 0))
