@@ -49,7 +49,7 @@ class TestInit(unittest.TestCase):
         LOGGER.info(file_path)
         metadata = []
         parser = configparser.ConfigParser()
-        parser.optionxform = str # type: ignore
+        parser.optionxform = str  # type: ignore
         parser.read(file_path)
         message = 'Cannot find a section named "general" in %s' % file_path
         assert parser.has_section("general"), message

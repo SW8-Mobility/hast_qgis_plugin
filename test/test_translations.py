@@ -15,7 +15,7 @@ __copyright__ = "Copyright 2012, Australia Indonesia Facility for " "Disaster Re
 import unittest
 import os
 
-from qgis.PyQt.QtCore import QCoreApplication, QTranslator # type: ignore
+from qgis.PyQt.QtCore import QCoreApplication, QTranslator  # type: ignore
 
 QGIS_APP = get_qgis_app()
 

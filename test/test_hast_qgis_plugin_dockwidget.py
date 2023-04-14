@@ -33,7 +33,7 @@ class HastQgisPluginDockWidgetTest(unittest.TestCase):
 
     def tearDown(self):
         """Runs after each test."""
-        self.dockwidget = None # type: ignore
+        self.dockwidget = None  # type: ignore
 
     def test_dockwidget_ok(self):
         """Test we can click OK."""

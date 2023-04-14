@@ -10,7 +10,7 @@ import getpass
 import xmlrpc.client
 from optparse import OptionParser
 
-standard_library.install_aliases() # type: ignore
+standard_library.install_aliases()  # type: ignore
 
 # Configuration
 PROTOCOL = "https"
@@ -41,7 +41,7 @@ def main(parameters, arguments):
     try:
         with open(arguments[0], "rb") as handle:
             plugin_id, version_id = server.plugin.upload(
-                xmlrpc.client.Binary(handle.read()) # type: ignore
+                xmlrpc.client.Binary(handle.read())  # type: ignore
             )
         print("Plugin ID: ", plugin_id)
         print("Version ID: ", version_id)

@@ -32,7 +32,7 @@ FORM_CLASS, _ = uic.loadUiType(
 )
 
 
-class HastQgisPluginDockWidget(QtWidgets.QDockWidget, FORM_CLASS): # type: ignore
+class HastQgisPluginDockWidget(QtWidgets.QDockWidget, FORM_CLASS):  # type: ignore
     closingPlugin = pyqtSignal()
 
     def __init__(self, parent=None):
