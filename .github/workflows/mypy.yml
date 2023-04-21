@@ -8,6 +8,7 @@ on:
 jobs:
   pytest:
     name: Run Mypy
+    if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
 
     steps:
