@@ -24,6 +24,7 @@
 
 import os
 
+from qgis.core import QgsProject # type: ignore
 from qgis.PyQt import QtGui, QtWidgets, uic  # type: ignore
 from qgis.PyQt.QtCore import pyqtSignal  # type: ignore
 
@@ -35,7 +36,7 @@ FORM_CLASS, _ = uic.loadUiType(
 class HastQgisPluginDockWidget(QtWidgets.QDockWidget, FORM_CLASS):  # type: ignore
     closingPlugin = pyqtSignal()
 
-    def __init__(self, parent=None):
+    def __init__(self, iface, parent=None):
         """Constructor."""
         super(HastQgisPluginDockWidget, self).__init__(parent)
         # Set up the user interface from Designer.
@@ -44,11 +45,14 @@ class HastQgisPluginDockWidget(QtWidgets.QDockWidget, FORM_CLASS):  # type: igno
         # http://doc.qt.io/qt-5/designer-using-a-ui-file.html
         # #widgets-and-dialogs-with-auto-connect
         self.setupUi(self)
-        self.calculateSpeedLimitButton.clicked.connect(self.print_hello_world)
+        self.iface = iface
+        self.calculateSpeedLimitButton.clicked.connect(self.insert_spedmap_layer)
 
     def closeEvent(self, event):
         self.closingPlugin.emit()
         event.accept()
 
-    def print_hello_world(self):
-        print("Hello World!")
+    def insert_spedmap_layer(self):
+        speedmap_name = "2008_data_layer"
+        if not len(QgsProject.instance().mapLayersByName(speedmap_name)) != 0:
+            self.iface.addVectorLayer("/Users/lille/Speedmap/hastighedsgraenser2008-01-21.shp", speedmap_name, "ogr")
