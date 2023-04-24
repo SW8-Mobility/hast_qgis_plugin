@@ -224,3 +224,5 @@ class HastQgisPlugin:
             # TODO: fix to allow choice of dock location
             self.iface.addDockWidget(Qt.LeftDockWidgetArea, self.dockwidget)
             self.dockwidget.show()  # type: ignore
+
+            self.iface.addVectorLayer("/Users/lille/Speedmap/1202_GPS80.shp", "speedmap_layer", "ogr")

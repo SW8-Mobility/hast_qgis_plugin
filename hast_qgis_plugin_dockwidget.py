@@ -44,7 +44,11 @@ class HastQgisPluginDockWidget(QtWidgets.QDockWidget, FORM_CLASS):  # type: igno
         # http://doc.qt.io/qt-5/designer-using-a-ui-file.html
         # #widgets-and-dialogs-with-auto-connect
         self.setupUi(self)
+        self.calculateSpeedLimitButton.clicked.connect(self.print_hello_world)
 
     def closeEvent(self, event):
         self.closingPlugin.emit()
         event.accept()
+
+    def print_hello_world(self):
+        print("Hello World!")
