@@ -24,7 +24,7 @@
 
 import os
 
-from qgis.core import QgsProject # type: ignore
+from qgis.core import QgsProject  # type: ignore
 from qgis.PyQt import QtGui, QtWidgets, uic  # type: ignore
 from qgis.PyQt.QtCore import pyqtSignal  # type: ignore
 
@@ -55,4 +55,8 @@ class HastQgisPluginDockWidget(QtWidgets.QDockWidget, FORM_CLASS):  # type: igno
     def insert_spedmap_layer(self):
         speedmap_name = "2008_data_layer"
         if not len(QgsProject.instance().mapLayersByName(speedmap_name)) != 0:
-            self.iface.addVectorLayer("/Users/lille/Speedmap/hastighedsgraenser2008-01-21.shp", speedmap_name, "ogr")
+            self.iface.addVectorLayer(
+                "/Users/lille/Speedmap/hastighedsgraenser2008-01-21.shp",
+                speedmap_name,
+                "ogr",
+            )
