@@ -46,6 +46,10 @@ class HastQgisPluginDockWidget(QtWidgets.QDockWidget, FORM_CLASS):  # type: igno
         # #widgets-and-dialogs-with-auto-connect
         self.setupUi(self)
         self.iface = iface
+        
+        # calculateSpeedLimitButton is the object name of the 'Calculate Speed Limits' button in the ui,
+        # .clicked is the event emitted, 
+        # .connect takes a func as a parameter and fires it on click.
         self.calculateSpeedLimitButton.clicked.connect(self.insert_spedmap_layer)
 
     def closeEvent(self, event):
@@ -53,10 +57,11 @@ class HastQgisPluginDockWidget(QtWidgets.QDockWidget, FORM_CLASS):  # type: igno
         event.accept()
 
     def insert_spedmap_layer(self):
+        '''Inserts a single layer in the QGIS instance containing speed limits'''
         speedmap_name = "2008_data_layer"
         if not len(QgsProject.instance().mapLayersByName(speedmap_name)) != 0:
             self.iface.addVectorLayer(
-                "/Users/lille/Speedmap/hastighedsgraenser2008-01-21.shp",
+                "/Users/jakobfaarbaekgregersen/Downloads/Speedmap/hastighedsgraenser2008-01-21.shp",
                 speedmap_name,
                 "ogr",
             )
