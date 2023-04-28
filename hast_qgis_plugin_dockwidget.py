@@ -24,6 +24,7 @@
 
 import os
 
+from qgis.core import QgsProject  # type: ignore
 from qgis.PyQt import QtGui, QtWidgets, uic  # type: ignore
 from qgis.PyQt.QtCore import pyqtSignal  # type: ignore
 
@@ -35,7 +36,7 @@ FORM_CLASS, _ = uic.loadUiType(
 class HastQgisPluginDockWidget(QtWidgets.QDockWidget, FORM_CLASS):  # type: ignore
     closingPlugin = pyqtSignal()
 
-    def __init__(self, parent=None):
+    def __init__(self, iface, parent=None):
         """Constructor."""
         super(HastQgisPluginDockWidget, self).__init__(parent)
         # Set up the user interface from Designer.
@@ -44,7 +45,23 @@ class HastQgisPluginDockWidget(QtWidgets.QDockWidget, FORM_CLASS):  # type: igno
         # http://doc.qt.io/qt-5/designer-using-a-ui-file.html
         # #widgets-and-dialogs-with-auto-connect
         self.setupUi(self)
+        self.iface = iface
+
+        # calculateSpeedLimitButton is the object name of the 'Calculate Speed Limits' button in the ui,
+        # .clicked is the event emitted,
+        # .connect takes a func as a parameter and fires it on click.
+        self.calculateSpeedLimitButton.clicked.connect(self.insert_spedmap_layer)
 
     def closeEvent(self, event):
         self.closingPlugin.emit()
         event.accept()
+
+    def insert_spedmap_layer(self):
+        """Inserts a single layer in the QGIS instance containing speed limits"""
+        speedmap_name = "2008_data_layer"
+        if not len(QgsProject.instance().mapLayersByName(speedmap_name)) != 0:
+            self.iface.addVectorLayer(
+                f"{os.path.dirname(__file__)}/layers/Speedmap/hastighedsgraenser2008-01-21.shp",
+                speedmap_name,
+                "ogr",
+            )
