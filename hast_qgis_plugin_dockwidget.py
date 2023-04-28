@@ -61,7 +61,7 @@ class HastQgisPluginDockWidget(QtWidgets.QDockWidget, FORM_CLASS):  # type: igno
         speedmap_name = "2008_data_layer"
         if not len(QgsProject.instance().mapLayersByName(speedmap_name)) != 0:
             self.iface.addVectorLayer(
-                "/Users/jakobfaarbaekgregersen/Downloads/Speedmap/hastighedsgraenser2008-01-21.shp",
+                "./layers/Speedmap/hastighedsgraenser2008-01-21.shp",
                 speedmap_name,
                 "ogr",
             )
